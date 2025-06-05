@@ -1,1 +1,1 @@
-# javascript-universe
+# Javascript Universe
