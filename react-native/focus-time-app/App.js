@@ -1,17 +1,29 @@
+import { useState } from "react";
+
 import {
   Platform,
   SafeAreaView,
   StatusBar,
   StyleSheet,
-  Text,
 } from 'react-native';
+
+import { Focus } from "./src/features/Focus";
+import { Timer } from "./src/features/Timer";
 
 import { colours } from "./src/utils/colours"
 
 export default function App() {
+  const [currentSubject, setCurrentSubject] = useState(null);
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>Hello World!!!</Text>
+      {
+        !currentSubject ? (
+          <Focus addSubject={setCurrentSubject} />
+        ) : (
+          <Timer focusSubject={currentSubject} onTimerEnd={() => {}} clearSubject={() => {}} />
+        )
+      }
     </SafeAreaView>
   );
 }
@@ -21,8 +33,5 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     backgroundColor: colours.darkBlue,    
-  },
-  text: {
-    color: colours.white,
-  }
+  },  
 });
