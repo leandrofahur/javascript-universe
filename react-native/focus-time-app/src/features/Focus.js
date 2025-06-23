@@ -31,8 +31,7 @@ export function Focus({ addSubject }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,   
+  container: {    
   },
   inputContainer: {    
     flexDirection: "row",

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
 import { fontSize, spacing } from '../utils/sizes';
@@ -9,20 +9,24 @@ const formatTime = (time) => (time < 10 ? `0${time}` : time);
 
 export const Countdown = ({ minutes = 0.1, isPaused, onProgress, onEnd }) => {
   const interval = React.useRef(null);
-
   const [millis, setMillis] = useState(null);
+
+  const reset = useCallback(() => {
+    setMillis(minutesToMillis(minutes));
+  }, [minutes]);
 
   const countDown = () => {
     setMillis((time) => {
       if (time === 0) {
         clearInterval(interval.current);
-        onEnd();
+        onEnd(reset);        
         return time;
       }
       const timeLeft = time - 1000;
       return timeLeft;
     });
   };
+
 
   useEffect(() => {
     setMillis(minutesToMillis(minutes));
