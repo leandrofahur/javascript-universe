@@ -1,7 +1,7 @@
 import { SafeAreaView, View, StyleSheet, Platform } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
-import { RestaurantsInfo } from "../features/Restaurants/RestaurantsInfo";
+import { RestaurantsInfoCard } from "../features/Restaurants/RestaurantsInfoCard";
 
 import { colours, spacing } from "../utils"
 
@@ -12,8 +12,8 @@ export function RestaurantsScreen() {
         <View style={styles.searchContainer}>
             <Searchbar placeholder="Search" />
         </View>
-        <View style={styles.restaurantsInfoContainer}>
-            <RestaurantsInfo />
+        <View style={styles.restaurantsInfoCardContainer}>
+            <RestaurantsInfoCard />
         </View>
         </SafeAreaView>
     )
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     searchContainer: {
       padding: spacing.md,    
     },
-    restaurantsInfoContainer: {
+    restaurantsInfoCardContainer: {
       flex: 1,
       padding: spacing.md,
       backgroundColor: "blue"

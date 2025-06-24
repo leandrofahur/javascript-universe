@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Image, Card } from 'react-native-paper';
 
 
-export function RestaurantsInfo({ restaurant = {} }) {
+export function RestaurantsInfoCard({ restaurant = {} }) {
     const { 
         name = "Restaurant Name", 
         icon, 
